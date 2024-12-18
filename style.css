@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+:root {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  font-family: "Pangolin";
+  background-color: #dd9130;
+}
+
+img {
+  image-rendering: pixelated;
+}
+
+.center {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.subtitle {
+  font-size: 2rem;
+  line-height: 2rem;
+
+  display: flex;
+  gap: 10px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main {
+  width: min(60dvh, 80dvw);
+}
