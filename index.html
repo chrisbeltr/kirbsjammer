@@ -12,11 +12,6 @@
 </head>
 
 <body style="visibility: hidden;">
-    <script>
-        window.addEventListener("load", (e) => {
-            document.body.style.visibility = "visible";
-        })
-    </script>
     <div class="center">
         <div class="title">kirbsjam</div>
         <div class="subtitle">
@@ -25,8 +20,22 @@
             <a href="https://ko-fi.com/kirbsjam">ko-fi</a>
             <a href="https://twitch.tv/kirbsjam">twitch</a>
         </div>
-        <img src="./images/jam.png" alt="jam">
+        <div class="images">
+            <img class="main" src="./images/jam.png" alt="jam">
+            <div class="sparkles">
+                <script>document.getElementsByClassName("sparkles")[0].style.width = window.getComputedStyle(document.getElementsByClassName("main")[0]).width</script>
+                <div class="group" id="g1">
+                    <img class="sparkle" src="./images/star1.png" alt="">
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        window.addEventListener("load", (e) => {
+            document.body.style.visibility = "visible";
+            document.body.classList.add("ready");
+        })
+    </script>
 </body>
 
 </html>

@@ -25,6 +25,7 @@ img {
 }
 
 .center {
+  position: relative;
   height: 100%;
 
   display: flex;
@@ -52,6 +53,50 @@ a {
   text-decoration: none;
 }
 
-.main {
+.images {
+  position: relative;
   width: min(60dvh, 80dvw);
+  height: min(60dvh, 80dvw);
+}
+
+.main {
+  height: 100%;
+}
+
+.sparkles {
+  bottom: 0;
+  left: auto;
+  right: auto;
+  width: min(60dvh, 80dvw);
+  height: min(60dvh, 80dvw);
+  position: absolute;
+}
+
+#g1 {
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 20%;
+}
+
+.sparkles img {
+  filter: drop-shadow(0.25vw 0.25vh 1px gray);
+  height: 100%;
+
+  opacity: 0;
+  transform: translateX(-2rem);
+}
+
+.ready .sparkles img {
+  transform: none;
+  opacity: 100;
+
+  transition: opacity 0.5s ease-in-out,
+    scale 0.5s cubic-bezier(0.28, 0.48, 0.26, 1.01),
+    transform 0.5s cubic-bezier(0.28, 0.48, 0.26, 1.01);
+}
+
+.ready .sparkles:hover img {
+  scale: 1.2;
+  transform: rotate(-45deg) translateX(-100px);
 }
