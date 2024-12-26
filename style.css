@@ -20,13 +20,14 @@ body {
   background-color: #dd9130;
 }
 
-img {
+/* img {
   image-rendering: pixelated;
-}
+} */
 
 .center {
   position: relative;
   height: 100%;
+  padding: 5px;
 
   display: flex;
   flex-direction: column;
@@ -46,6 +47,8 @@ img {
 
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 a {
@@ -60,15 +63,30 @@ a {
 }
 
 .main {
+  position: relative;
+  z-index: -3;
   height: 100%;
+
+  transition: scale 0.4s cubic-bezier(0.26, 1.02, 0.79, 1),
+    transform 0.4s cubic-bezier(0.26, 1.02, 0.79, 1);
+}
+
+.images:hover .main {
+  scale: 1.2;
+  transform: rotate(-17deg);
 }
 
 .sparkles {
+  position: absolute;
+  z-index: -2;
   bottom: 0;
   left: auto;
   right: auto;
   width: min(60dvh, 80dvw);
   height: min(60dvh, 80dvw);
+}
+
+.group {
   position: absolute;
 }
 
@@ -79,9 +97,41 @@ a {
   height: 20%;
 }
 
+#g1 > .sparkle {
+  height: 100%;
+}
+
+.images:hover #g1 > .sparkle {
+  /* transformation */
+  scale: 1.2;
+  transform: rotate(-45deg) translateX(-100px);
+}
+
+#g2 {
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 20%;
+}
+
+#g2 > .sparkle:first-child {
+  height: 100%;
+}
+
+#g2 > .sparkle:nth-child(2) {
+  position: absolute;
+  top: 0;
+  height: 25%;
+}
+
+.images:hover #g2 > .sparkle {
+  /* transformation */
+  scale: 1.2;
+  transform: rotate(-25deg) translateX(100px);
+}
+
 .sparkles img {
   filter: drop-shadow(0.25vw 0.25vh 1px gray);
-  height: 100%;
 
   opacity: 0;
   transform: translateX(-2rem);
@@ -92,11 +142,61 @@ a {
   opacity: 100;
 
   transition: opacity 0.5s ease-in-out,
-    scale 0.5s cubic-bezier(0.28, 0.48, 0.26, 1.01),
-    transform 0.5s cubic-bezier(0.28, 0.48, 0.26, 1.01);
+    scale 0.4s cubic-bezier(0.26, 1.02, 0.79, 1),
+    transform 0.4s cubic-bezier(0.26, 1.02, 0.79, 1);
 }
 
-.ready .sparkles:hover img {
-  scale: 1.2;
-  transform: rotate(-45deg) translateX(-100px);
+/* for media queries: */
+/* .images:hover #g1 > .sparkle {
+     scale: 1.2;
+     transform: rotate(-45deg) translateX(-100px);
+   } */
+/* .images:hover #g2 > .sparkle:first-child {
+     scale: 1.2;
+     transform: rotate(-25deg) translateX(100px);
+   } */
+
+@media (width < 1300px) {
+  .images:hover #g1 > .sparkle {
+    transform: rotate(-45deg) translateX(-50px);
+  }
+  .images:hover #g2 > .sparkle {
+    transform: rotate(-25deg) translateX(50px);
+  }
+  .title {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+}
+
+@media (width > 1700px) {
+  .images:hover #g1 > .sparkle {
+    transform: rotate(-45deg) translateX(-125px);
+  }
+  .images:hover #g2 > .sparkle {
+    transform: rotate(-25deg) translateX(125px);
+  }
+  .title {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+  .subtitle {
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+@media (width > 2000px) {
+  .title {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
+  .subtitle {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
 }

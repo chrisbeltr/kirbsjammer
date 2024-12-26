@@ -23,17 +23,25 @@
         <div class="images">
             <img class="main" src="./images/jam.png" alt="jam">
             <div class="sparkles">
-                <script>document.getElementsByClassName("sparkles")[0].style.width = window.getComputedStyle(document.getElementsByClassName("main")[0]).width</script>
                 <div class="group" id="g1">
                     <img class="sparkle" src="./images/star1.png" alt="">
+                </div>
+                <div class="group" id="g2">
+                    <img src="./images/star2.png" alt="" class="sparkle">
+                    <img src="./images/star3.png" alt="" class="sparkle">
                 </div>
             </div>
         </div>
     </div>
     <script>
         window.addEventListener("load", (e) => {
+            // ready statuses
             document.body.style.visibility = "visible";
             document.body.classList.add("ready");
+
+            // need to set these after everything loads in properly
+            document.getElementsByClassName("sparkles")[0].style.width = window.getComputedStyle(document.getElementsByClassName("main")[0]).width
+            document.getElementsByClassName("images")[0].style.width = window.getComputedStyle(document.getElementsByClassName("main")[0]).width
         })
     </script>
 </body>
